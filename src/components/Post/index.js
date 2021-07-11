@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   Box,
   Image,
@@ -10,42 +12,43 @@ import {
   Footer,
 } from './Post.style';
 
-function Post() {
+function Post({ data }) {
+  const { user, tags } = data;
   return (
     <Box>
       <Preview>
         <Info>
-          <Image
-            src="https://static.productionready.io/images/smiley-cyrus.jpg"
-            alt="user"
-          />
+          <Image src={user.image} alt="user" />
           <div>
-            <a href="/#">username</a>
-            <Paragraph>Thu Jul 08 2021</Paragraph>
+            <a href="/#">{user.firstName}</a>
+            <Paragraph>{new Date(data.createdAt).toDateString()}</Paragraph>
           </div>
         </Info>
         <Button type="button">
           <span className="iconify" data-icon="ion-heart" data-inline="false" />
-          100
+          {data.likes}
         </Button>
       </Preview>
       <Body>
-        <h3>Title</h3>
-        <Paragraph>Content</Paragraph>
+        <h3>{data.title}</h3>
+        <Paragraph>{data.content}</Paragraph>
       </Body>
       <Footer>
         <Paragraph>Read more...</Paragraph>
         <ul>
-          <li>
-            <a href="/#">Black Live Matters</a>
-          </li>
-          <li>
-            <a href="/#">Humanity</a>
-          </li>
+          {tags.map((tag) => (
+            <li key={tag.id}>
+              <a href="/#">{tag.name}</a>
+            </li>
+          ))}
         </ul>
       </Footer>
     </Box>
   );
 }
+Post.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.object.isRequired,
+};
 
 export default Post;

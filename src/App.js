@@ -19,22 +19,9 @@ export default App;
 -[x] Header -> logo -------- Home sign in sign up
 -[x] Sign in
 -[x] Sign up
--[x] Form
--[] Input
 -[x] Banner
--[] Post
+-[x] Post
 -[] Pagination
--[] Like
--[] Tags
-*/
-
-/*
---- pages
-
--[] Home
-  - Header
-  - Banner
-  - Tags
-  - Post
-  - Pagintaion
+-[x] Like
+-[x] Tags
 */
