@@ -19,7 +19,7 @@ function Pages(props) {
       ) : (
         <></>
       )}
-      {offset < count ? (
+      {offset + 5 < count ? (
         <Button onClick={handleNext} type="button">
           Next
         </Button>

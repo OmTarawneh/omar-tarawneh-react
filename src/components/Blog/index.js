@@ -40,6 +40,7 @@ function Blog() {
               setBlogPosts={setBlogPosts}
               setCount={setCount}
               offset={offset}
+              setOffset={setOffset}
             />
             {blogPosts.map((post) => (
               <Post data={post} key={post.id} />

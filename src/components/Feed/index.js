@@ -5,7 +5,7 @@ function Feed(props) {
   // eslint-disable-next-line react/prop-types
   const { tag, setTag, setBlogPosts } = props;
   // eslint-disable-next-line react/prop-types
-  const { setCount, offset } = props;
+  const { setCount, offset, setOffset } = props;
   const toggle = () => {
     const fetchData = async () => {
       const response = await fetch(
@@ -23,6 +23,7 @@ function Feed(props) {
       setTag(null);
       setBlogPosts(result.data);
       setCount(result.itemsCount);
+      setOffset(0);
     };
     fetchData();
   };
