@@ -29,4 +29,5 @@ export const Title = styled.h1`
   color: #5cb85c;
   font-size: 1.5rem;
   font-weight: bolder;
+  cursor: pointer;
 `;

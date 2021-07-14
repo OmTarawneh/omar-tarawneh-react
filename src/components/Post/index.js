@@ -16,31 +16,6 @@ import {
  *
  * @component
  * @example
- * const data = {
- *  "id": 3,
- *  "title": "pariah's",
- *  "description": "preferences rerun repudiate",
- *  "content": "sed a total",
- *  "likes": 14,
- *  "UserId": 61,
- *  "User": {
- *      "id": 61,
- *      "firstName": "Aurora",
- *      "lastName": "Schlumberger",
- *      "email": "Korey.Wisozk97@yahoo.com",
- *      "image": "image",
- *  },
- *  "Tag": [
- *      {
- *          "id": 1,
- *          "name": "dolorous",
- *      },
- *      {
- *          "id": 5,
- *          "name": "explicable",
- *      }
- *  ] *
- * }
  * return (
  *  <Post data={data} />
  * );
@@ -79,6 +54,7 @@ function Post({ data }) {
     </Box>
   );
 }
+
 Post.propTypes = {
   data: PropTypes.shape({
     Tag: PropTypes.arrayOf(

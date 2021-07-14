@@ -27,6 +27,7 @@ function Feed({ tag, setTag, setUrl }) {
     </Wrapper>
   );
 }
+
 Feed.propTypes = {
   /**
    * Tag setter.
