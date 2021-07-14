@@ -8,6 +8,14 @@ import { Wrapper } from './Blog.style';
 
 const API = process.env.REACT_APP_URL;
 
+/**
+ * Top level component to wrap up the feed, post and tags and exchange the data between them.
+ * @component
+ * @example
+ * return(
+ *  <Blog />
+ * );
+ */
 function Blog() {
   const [offset, setOffset] = useState(0);
   const [tag, setTag] = useState('');
