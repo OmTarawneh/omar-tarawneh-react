@@ -1,40 +1,45 @@
+import PropType from 'prop-types';
 import React from 'react';
 import { Item, Wrapper, List } from 'components/Feed/Feed.style';
 
-function Feed(props) {
-  // eslint-disable-next-line react/prop-types
-  const { tag, setTag, setBlogPosts } = props;
-  // eslint-disable-next-line react/prop-types
-  const { setCount, offset, setOffset } = props;
-  const toggle = () => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `http://localhost:4000/api/v1/blog?limit=5&offset=${offset}`,
-        {
-          method: 'GET',
-          mode: 'cors',
-          cache: 'no-cache',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-      const result = await response.json();
-      setTag(null);
-      setBlogPosts(result.data);
-      setCount(result.itemsCount);
-      setOffset(0);
-    };
-    fetchData();
+const API = process.env.REACT_APP_URL;
+/**
+ * Feed component that will return the active feed - Global or Tag name.
+ *
+ * @component
+ * @example
+ * return (
+ *  <Feed tag={tag} setTag={setTag} setUrl={setUrl}  />
+ * )
+ *
+ */
+function Feed({ tag, setTag, setUrl }) {
+  const handleGlobal = () => {
+    setTag('');
+    setUrl(`${API}/blog?limit=5&offset=0`);
   };
   return (
     <Wrapper>
       <List>
-        <Item onClick={toggle}>Global Feed</Item>
-        {tag ? <Item>{tag}</Item> : <></>}
+        <Item onClick={handleGlobal}>Global Feed</Item>
+        {tag ? <Item>{`# ${tag}`}</Item> : <></>}
       </List>
     </Wrapper>
   );
 }
+Feed.propTypes = {
+  /**
+   * Tag setter.
+   */
+  setTag: PropType.func.isRequired,
+  /**
+   * Url setter.
+   */
+  setUrl: PropType.func.isRequired,
+  /**
+   * Tag name.
+   */
+  tag: PropType.string.isRequired,
+};
 
 export default Feed;

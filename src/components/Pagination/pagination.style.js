@@ -3,7 +3,11 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 25rem;
+  p {
+    color: #b7b7c7;
+  }
 `;
 
 export const Button = styled.button`

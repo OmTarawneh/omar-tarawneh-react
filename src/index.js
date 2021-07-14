@@ -5,7 +5,6 @@ import { createGlobalStyle } from 'styled-components';
 import App from './App';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
   * {
     font-family: 'Titillium Web', sans-serif;
     box-sizing: border-box;
@@ -21,6 +20,5 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
   </React.StrictMode>,
-  // eslint-disable-next-line comma-dangle
-  document.getElementById('root')
+  document.getElementById('root'),
 );

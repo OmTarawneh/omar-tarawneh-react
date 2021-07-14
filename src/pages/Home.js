@@ -4,6 +4,11 @@ import Banner from 'components/Banner';
 import Blog from 'components/Blog';
 import { Wrapper } from './Home.style';
 
+/**
+ * Home page which wrap all the component needed for the home page.
+ *
+ * @component
+ */
 function Home() {
   return (
     <>

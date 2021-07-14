@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {
   Box,
   Image,
@@ -12,15 +11,49 @@ import {
   Footer,
 } from './Post.style';
 
+/**
+ * Post component that accept post data and render them.
+ *
+ * @component
+ * @example
+ * const data = {
+ *  "id": 3,
+ *  "title": "pariah's",
+ *  "description": "preferences rerun repudiate",
+ *  "content": "sed a total",
+ *  "likes": 14,
+ *  "UserId": 61,
+ *  "User": {
+ *      "id": 61,
+ *      "firstName": "Aurora",
+ *      "lastName": "Schlumberger",
+ *      "email": "Korey.Wisozk97@yahoo.com",
+ *      "image": "image",
+ *  },
+ *  "Tag": [
+ *      {
+ *          "id": 1,
+ *          "name": "dolorous",
+ *      },
+ *      {
+ *          "id": 5,
+ *          "name": "explicable",
+ *      }
+ *  ] *
+ * }
+ * return (
+ *  <Post data={data} />
+ * );
+ */
 function Post({ data }) {
-  const { user, tags } = data;
+  const { User, Tag } = data;
   return (
     <Box>
       <Preview>
         <Info>
-          <Image src={user.image} alt="user" />
+          <Image src={User.image} alt="user" />
           <div>
-            <a href="/#">{user.firstName}</a>
+            <a href="/#">{User.firstName}</a>
             <Paragraph>{new Date(data.createdAt).toDateString()}</Paragraph>
           </div>
         </Info>
@@ -36,7 +69,7 @@ function Post({ data }) {
       <Footer>
         <Paragraph>Read more...</Paragraph>
         <ul>
-          {tags.map((tag) => (
+          {Tag.map((tag) => (
             <li key={tag.id}>
               <a href="/#">{tag.name}</a>
             </li>
@@ -47,8 +80,32 @@ function Post({ data }) {
   );
 }
 Post.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    Tag: PropTypes.arrayOf(
+      PropTypes.shape({
+        createdAt: PropTypes.string,
+        id: PropTypes.number,
+        name: PropTypes.string,
+        updatedAt: PropTypes.string,
+      }),
+    ),
+    User: PropTypes.shape({
+      createdAt: PropTypes.string,
+      email: PropTypes.string,
+      firstName: PropTypes.string,
+      id: PropTypes.number,
+      image: PropTypes.string,
+      lastName: PropTypes.string,
+      updatedAt: PropTypes.string,
+    }),
+    UserId: PropTypes.number,
+    content: PropTypes.string,
+    createdAt: PropTypes.string,
+    id: PropTypes.number,
+    likes: PropTypes.number,
+    title: PropTypes.string,
+    updatedAt: PropTypes.string,
+  }).isRequired,
 };
 
 export default Post;

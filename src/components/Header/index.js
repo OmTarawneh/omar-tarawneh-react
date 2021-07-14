@@ -1,7 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Wrapper, List, Title } from './Header.style';
-
+/**
+ * Header component that will return the styled nav with Home, Sign in and Sign up.
+ * @component
+ * @example
+ * return (
+ *  <Header />
+ * )
+ *
+ */
 function Header() {
   return (
     <>

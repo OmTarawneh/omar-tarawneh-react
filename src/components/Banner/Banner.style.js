@@ -10,7 +10,8 @@ export const Wrapper = styled.div`
   margin-top: 1rem;
   padding: 1rem;
   height: 10rem;
-  box-shadow: inset 0 8px 8px -8px rgb(0 0 0 / 30%), inset 0 -8px 8px -8px rgb(0 0 0 / 30%);
+  box-shadow: inset 0 0.5rem 0.5rem -0.5rem rgb(0 0 0 / 30%),
+    inset 0 -0.5rem 0.5rem -0.5rem rgb(0 0 0 / 30%);
 `;
 
 export const Title = styled.h1`

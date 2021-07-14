@@ -14,14 +14,3 @@ function App() {
 }
 
 export default App;
-
-/*
--[x] Header -> logo -------- Home sign in sign up
--[x] Sign in
--[x] Sign up
--[x] Banner
--[x] Post
--[] Pagination
--[x] Like
--[x] Tags
-*/
