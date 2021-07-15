@@ -58,7 +58,7 @@ function Pages({ offset, setOffset, count, setUrl }) {
         Previous
       </Button>
       <p>
-        {page}-{num}
+        {page} - {num}
       </p>
       <Button onClick={handleNext} type="button">
         Next
