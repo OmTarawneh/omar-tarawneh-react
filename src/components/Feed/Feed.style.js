@@ -3,9 +3,6 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   margin-top: 2rem;
   align-self: flex-start;
-  .unactive {
-    color: gray;
-  }
 `;
 
 export const List = styled.ul`
@@ -13,10 +10,12 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  color: #5cb85c;
+  /* color: #5cb85c; */
+  color: ${(props) => (props.color ? '#5cb85c' : '#b7b7c7')};
   list-style: none;
   padding: 0.5rem;
   margin-right: 0.5rem;
-  border-bottom: 0.1rem #5cb85c solid;
+  border-bottom: 0.1rem ${(props) => (props.color ? '#5cb85c' : '#b7b7c7')}
+    solid;
   cursor: pointer;
 `;

@@ -23,7 +23,7 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/signin">
+              <NavLink exact to="/login">
                 Sign in
               </NavLink>
             </li>
